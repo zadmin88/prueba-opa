@@ -20,7 +20,7 @@ const EscaladaContainer = ({ escaladas }: { escaladas: EscaladaType[] }) => {
       ) : (
         <div className=" py-4 px-8 flex flex-col gap-4 items-center">
           <h1 className="font-semibold text-lg">Escaladas</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
+          <div className="grid grid-flow-col auto-cols-max gap-4">
             {escaladas.map((item, idx) => (
               <EscaladaCard item={item} key={idx} />
             ))}

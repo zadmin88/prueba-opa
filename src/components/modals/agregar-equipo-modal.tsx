@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useModal } from "@/hooks/use-modal-store";
 import { useEquipoState } from "@/hooks/use-equipo-state";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   Dialog,
@@ -58,7 +59,7 @@ const AgregarEquipoModal = () => {
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    setEquipo(values);
+    setEquipo({ ...values, id: uuidv4() });
     onClose();
   };
 
