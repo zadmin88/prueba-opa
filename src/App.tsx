@@ -7,8 +7,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/prueba-opa" element={<Home />} />
-          <Route path="/prueba-opa/*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </>
