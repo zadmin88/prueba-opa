@@ -16,17 +16,19 @@ export function combinacionDeEquipo({
   pesoMaximo: number;
 }): EquipoType[] {
   const n = equipo.length;
+  const maxCalorias = equipo.reduce((acc, item) => acc + item.calorias, 0);
+
   const dp: number[][] = Array(n + 1)
     .fill(0)
-    .map(() => Array(caloriasMinimas + 1).fill(Infinity));
+    .map(() => Array(maxCalorias + 1).fill(Infinity));
   const opciones: boolean[][] = Array(n + 1)
     .fill(false)
-    .map(() => Array(caloriasMinimas + 1).fill(false));
+    .map(() => Array(maxCalorias + 1).fill(false));
   dp[0][0] = 0;
 
   for (let i = 1; i <= n; i++) {
     const { peso, calorias } = equipo[i - 1];
-    for (let j = 0; j <= caloriasMinimas; j++) {
+    for (let j = 0; j <= maxCalorias; j++) {
       if (j < calorias) {
         dp[i][j] = dp[i - 1][j];
       } else {
@@ -40,17 +42,15 @@ export function combinacionDeEquipo({
     }
   }
 
-  let maxCalories = 0;
-  for (let j = 0; j <= caloriasMinimas; j++) {
-    if (dp[n][j] <= pesoMaximo) {
-      maxCalories = j;
-    }
+  let minCalories = maxCalorias;
+  while (minCalories >= caloriasMinimas && dp[n][minCalories] > pesoMaximo) {
+    minCalories--;
   }
 
   const result: EquipoType[] = [];
   let i = n,
-    j = maxCalories;
-  while (i > 0 && j > 0) {
+    j = minCalories;
+  while (i > 0 && j >= 0) {
     if (opciones[i][j]) {
       result.push(equipo[i - 1]);
       j -= equipo[i - 1].calorias;
