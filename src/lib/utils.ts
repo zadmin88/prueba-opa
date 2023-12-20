@@ -58,5 +58,10 @@ export function combinacionDeEquipo({
     i--;
   }
 
+  const totalCalories = result.reduce((sum, item) => sum + item.calorias, 0);
+
+  if (totalCalories < caloriasMinimas) {
+    return [];
+  }
   return result;
 }

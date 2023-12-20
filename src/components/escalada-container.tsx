@@ -7,7 +7,7 @@ const EscaladaContainer = ({ escaladas }: { escaladas: EscaladaType[] }) => {
   const { onOpen } = useModal();
 
   return (
-    <div className="rounded-md bg-white  mx-4 md:mx-0 py-4 w-full px-4 md:px-8">
+    <div className="rounded-md bg-white  mx-4 md:mx-0 py-4 w-full px-0 md:px-8">
       {escaladas.length === 0 ? (
         <div className="flex flex-col gap-4 items-center">
           <p className="text-lg text-muted-foreground">
