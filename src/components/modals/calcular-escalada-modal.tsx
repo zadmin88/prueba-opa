@@ -7,6 +7,7 @@ import { useModal } from "@/hooks/use-modal-store";
 import { combinacionDeEquipo } from "@/lib/utils";
 import { useEquipoState } from "@/hooks/use-equipo-state";
 import { useEscaladaState } from "@/hooks/use-escalada-state";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   Dialog,
@@ -80,6 +81,7 @@ const CalcularEscaladaModal = () => {
     );
 
     const escalada = {
+      id: uuidv4(),
       equipo: [...resultado],
       nombre: values.nombre,
       pesoMaximo: values.pesoMaximo,
@@ -124,8 +126,7 @@ const CalcularEscaladaModal = () => {
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black
                          focus-visible:ring-offset-0"
-                        placeholder="Ingresa nombre del cerro
-                        "
+                        placeholder="Ingresa nombre del cerro"
                         {...field}
                       />
                     </FormControl>
@@ -148,7 +149,7 @@ const CalcularEscaladaModal = () => {
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black
                          focus-visible:ring-offset-0"
-                        placeholder="Enter product price"
+                        placeholder="Ingresa peso maximo"
                         {...field}
                       />
                     </FormControl>
@@ -170,7 +171,7 @@ const CalcularEscaladaModal = () => {
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black
                          focus-visible:ring-offset-0"
-                        placeholder="Enter product cost"
+                        placeholder="Ingresa calorias minimas"
                         {...field}
                       />
                     </FormControl>
@@ -179,7 +180,7 @@ const CalcularEscaladaModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className=" px-6 py-4">
               <Button variant="default" disabled={isLoading}>
                 Calcular
               </Button>

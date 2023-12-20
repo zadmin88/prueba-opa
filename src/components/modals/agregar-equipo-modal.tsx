@@ -60,6 +60,7 @@ const AgregarEquipoModal = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     setEquipo({ ...values, id: uuidv4() });
+    form.reset();
     onClose();
   };
 
@@ -117,7 +118,7 @@ const AgregarEquipoModal = () => {
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black
                          focus-visible:ring-offset-0"
-                        placeholder="Enter product price"
+                        placeholder="Agregar peso del equipo"
                         {...field}
                       />
                     </FormControl>
@@ -139,7 +140,7 @@ const AgregarEquipoModal = () => {
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black
                          focus-visible:ring-offset-0"
-                        placeholder="Enter product cost"
+                        placeholder="Agregar calorias del equipo"
                         {...field}
                       />
                     </FormControl>
@@ -148,7 +149,7 @@ const AgregarEquipoModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className=" px-6 py-4">
               <Button variant="default" disabled={isLoading}>
                 Agregar
               </Button>

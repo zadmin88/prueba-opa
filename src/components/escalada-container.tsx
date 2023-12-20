@@ -7,7 +7,7 @@ const EscaladaContainer = ({ escaladas }: { escaladas: EscaladaType[] }) => {
   const { onOpen } = useModal();
 
   return (
-    <div className="rounded-md border border-stone-300 px-4 py-8">
+    <div className="rounded-md bg-white  mx-4 md:mx-0 py-4 w-full px-4 md:px-8">
       {escaladas.length === 0 ? (
         <div className="flex flex-col gap-4 items-center">
           <p className="text-lg text-muted-foreground">
@@ -20,14 +20,14 @@ const EscaladaContainer = ({ escaladas }: { escaladas: EscaladaType[] }) => {
       ) : (
         <div className=" py-4 px-8 flex flex-col gap-4 items-center">
           <h1 className="font-semibold text-lg">Escaladas</h1>
-          <div className="grid grid-flow-col auto-cols-max gap-4">
+          <Button className="mt-4" onClick={() => onOpen("calcularEscalada")}>
+            Calcular escalada
+          </Button>
+          <div className="flex flex-wrap gap-4   md:justify-center  ">
             {escaladas.map((item, idx) => (
               <EscaladaCard item={item} key={idx} />
             ))}
           </div>
-          <Button className="mt-4" onClick={() => onOpen("calcularEscalada")}>
-            Calcular escalada
-          </Button>
         </div>
       )}
     </div>

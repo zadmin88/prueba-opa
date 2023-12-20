@@ -10,12 +10,14 @@ const Home = () => {
   const { escaladas } = useEscaladaState();
 
   return (
-    <div className="flex flex-col items-center mt-8 gap-4">
-      <AgregarEquipoModal />
-      <CalcularEscaladaModal />
-      <h1 className="text-3xl">Planea tu escalada</h1>
-      <EquiposContainer equipo={equipo} />
-      <EscaladaContainer escaladas={escaladas} />
+    <div className=" h-full min-h-screen flex justify-center items-center bg-stone-100 pb-8">
+      <div className="flex flex-col max-w-screen-lg  items-center gap-4  ">
+        <AgregarEquipoModal />
+        <CalcularEscaladaModal />
+        <h1 className="text-3xl font-semibold mt-8">Planea tu escalada</h1>
+        <EquiposContainer equipo={equipo} />
+        <EscaladaContainer escaladas={escaladas} />
+      </div>
     </div>
   );
 };
