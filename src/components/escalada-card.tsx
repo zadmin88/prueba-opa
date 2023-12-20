@@ -42,19 +42,19 @@ const EscaladaCard = ({ item }: { item: EscaladaType }) => {
             Calorias minimas: {item.caloriasMinimas} <br />
             Peso del equipo: {item.sumatoriaPeso} <br />
             Calorias del equipo: {item.sumariaCalorias} <br />
-            {!(item.equipo.length === 0) &&
+            {/* {!(item.equipo.length === 0) &&
               item.caloriasMinimas > item.sumariaCalorias && (
                 <span className="font-semibold text-sm mt-4 text-red-500">
                   Te faltan elementos para esta escalada
                 </span>
-              )}
+              )} */}
           </>
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-4 justify-start md:justify-center  max-w-screen-md ">
         {item.equipo.length === 0 ? (
           <p className="font-semibold mt-4 text-red-500">
-            Ningun elemento apto para esta escalada
+            No tienes sufiente equipo para esta escalada
           </p>
         ) : (
           <>
